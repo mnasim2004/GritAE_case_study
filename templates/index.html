@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case Study Matcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h1 class="title">Case Study Matcher</h1>
+        <form id="prospect-form">
+            <div class="field">
+                <label class="label">Prospect Website URL</label>
+                <div class="control">
+                    <input class="input" type="url" name="prospect_url" placeholder="https://example.com" required>
+                </div>
+            </div>
+            <div class="control">
+                <button class="button is-primary" type="submit">Find Case Study</button>
+            </div>
+        </form>
+        <div id="result" class="content" style="display: none;">
+            <h2>Check out this case study:</h2>
+            <p><strong>Customer:</strong> <span id="company"></span></p>
+            <p><strong>Description:</strong> <span id="description"></span></p>
+            <p><strong>Link:</strong> <a id="link" href="#" target="_blank">View Case Study</a></p>
+            <p><strong>Similarity percentage:</strong> <span id="similarity_percentage"></span></p>
+            <h3>Reasons to Refer:</h3>
+            <ul id="reasons"></ul>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('prospect-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        fetch('/match', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.error) {
+                alert(data.error);
+            } else {
+                document.getElementById('company').innerText = data.company;
+                document.getElementById('description').innerText = data.description;
+                document.getElementById('link').href = data.link;
+                document.getElementById('reasons').innerHTML = data.reasons.map(reason => `<li>${reason}</li>`).join('');
+                document.getElementById('similarity_percentage').innerText = data.similarity_percentage; // Set similarity percentage value
+                document.getElementById('result').style.display = 'block';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
+</body>
+</html>
