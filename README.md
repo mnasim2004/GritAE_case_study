@@ -52,19 +52,27 @@ The script get_data.py will scrape the case studies, preprocess the data, and ge
 **File Descriptions**
 
 get_data.py: Main script to scrape data, preprocess it, and generate TF-IDF values.
+
 scraper.py: Contains functions for scraping case studies and additional details.
+
 preprocess.py: Contains functions for preprocessing the scraped data.
+
 tfidf.py: Contains functions for generating TF-IDF values from the preprocessed data.
+
 requirements.txt: Lists all the dependencies required for this project.
 
 **Usage**
 
 After running get_data.py, the following files will be generated:
 
-*data.csv*: Initial case studies data.
-*new_data.csv*: Detailed case studies data after visiting each link.
-*preprocessed_new_data.csv*: Preprocessed detailed information.
-*tfidf_values.csv*: TF-IDF values generated from the preprocessed data.
+data.csv: Initial case studies data.
+
+new_data.csv: Detailed case studies data after visiting each link.
+
+preprocessed_new_data.csv: Preprocessed detailed information.
+
+tfidf_values.csv: TF-IDF values generated from the preprocessed data.
+
 
 These files can be used for further analysis and processing.
 
