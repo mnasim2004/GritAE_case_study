@@ -107,4 +107,5 @@ The Case Study Matcher is an application designed to assist sellers in finding r
 6. **Drafting Email:**
     - Draft an email that includes the case study link and the generated reasons.
 
+![screencapture-127-0-0-1-5000-2024-06-07-21_32_57](https://github.com/mnasim2004/GritAE_case_study/assets/81107541/f72902bc-ff77-4cd8-8b03-744bfda01f38)
 
