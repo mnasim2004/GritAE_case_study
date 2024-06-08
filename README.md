@@ -27,7 +27,7 @@ The Case Study Matcher is an application designed to assist sellers in finding r
 
 2. **Create a virtual environment:**
     ```bash
-    python3 -m venv venv
+    python -m venv venv
     ```
 
 3. **Activate the virtual environment:**
